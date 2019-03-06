@@ -42,14 +42,14 @@ class ParseBook(object):
 
                         if line.startswith('BOOK'):
                             #initialize the 1st level of the dictionary
-                            print "processing books..."
+                            #print "processing books..."
                             book_num_yr = line.strip()
                             result[book_num_yr] = {}
                             continue
 
                         if line.startswith('CHAPTER'):
                             #initialize the 2nd level of the dictionary
-                            print "processing chapters..."
+                            #print "processing chapters..."
                             chapter_index = line.strip()
 
                             # reset and initialize for the next chapter
@@ -76,6 +76,6 @@ class ParseBook(object):
                                 # begining of a paragraph. accumulate lines in a paragraph
                                 para_lines.append(line)
                     return result
-
             except IOError as e:
-                print "I/O error({0}): {1}".format(e.errno, e.strerror)
+                #print "I/O error({0}): {1}".format(e.errno, e.strerror)
+                raise e
